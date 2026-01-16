@@ -1,32 +1,30 @@
 :root{
-  --bg: #fff6fb;
+  --bg: #fff5fa;
   --card: #ffffff;
-  --border: #ffd3e6;
-  --accent: #ff6fa8;
-  --text: #222;
-  --muted: #777;
+  --text: #1f1f1f;
+  --muted: #6f6f76;
+  --border: #ffd0e3;
+  --pink: #ff5aa5;
+  --shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
-*{ box-sizing:border-box; }
-
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; }
 body{
-  margin:0;
-  font-family: "Georgia", serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7; /* ✅ more breathing room */
 }
 
-.wrap{
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+.wrap{ width: min(1100px, 92vw); margin: 0 auto; }
 
-/* topbar */
 .topbar{
-  background: #fff;
-  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .topbar-inner{
@@ -34,149 +32,309 @@ body{
   align-items:center;
   justify-content:space-between;
   padding: 14px 0;
+  gap: 20px;
 }
 
-.brand{
-  display:flex;
-  gap:10px;
-  align-items:center;
+.brand{ display:flex; align-items:center; gap:12px; }
+.logo{
+  width: 38px; height: 38px;
+  display:grid; place-items:center;
+  background:#ffe3f0;
+  border-radius: 12px;
+  font-size: 20px;
 }
+.brand-name{ font-weight: 800; }
+.brand-tag{ color: var(--muted); font-size: 13px; margin-top: 2px; }
 
-.logo{ font-size:26px; }
-
-.brand-name{ font-weight:700; }
-.brand-tag{ font-size:13px; color: var(--muted); }
-
-nav a{
-  margin-left:18px;
+.nav a{
   text-decoration:none;
   color: var(--text);
-  font-weight:600;
+  font-weight: 650;
+  margin-left: 16px;
 }
+.nav a:hover{ color: var(--pink); }
 
-/* hero */
 .hero{
-  text-align:center;
-  padding: 54px 20px 30px;
+  padding: 28px 0 10px;
+}
+.hero-inner h1{
+  font-size: clamp(26px, 4vw, 40px);
+  margin: 0;
+}
+.hero-inner p{
+  margin: 8px 0 0;
+  color: var(--muted);
 }
 
-.hero h1{
-  font-size: 40px;
-  margin: 0 0 10px;
+.section{ padding: 26px 0; }
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.section-head h2{ margin:0; font-size: 28px; }
+.muted{ color: var(--muted); margin:0; }
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr; /* ✅ one card per row */
+  gap: 22px;                 /* ✅ more space between cards */
 }
 
-.hero p{ color: var(--muted); margin:0; }
 
-/* sections */
-section{ margin: 50px 0 70px; }
-h2{ font-size: 30px; margin-bottom: 26px; }
-
-/* recipe card */
-.recipe{
+.card{
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 22px;
-  margin-bottom: 26px;
+  box-shadow: var(--shadow);
   overflow: hidden;
 }
 
-details { padding: 0; }
-
+details{ width: 100%; }
 summary{
   list-style:none;
   cursor:pointer;
 }
-
 summary::-webkit-details-marker{ display:none; }
 
 .card-head{
-  display:grid;
-  grid-template-columns: 220px 1fr;
-  gap: 22px;
+  display:flex;
   align-items:center;
-  padding: 20px;
+  gap: 16px;
+  padding: 18px;
 }
 
-.card-head img{
-  width: 220px;
-  height: 150px;
+.thumb{
+  width: 140px;
+  height: 105px;
   object-fit: cover;
   border-radius: 16px;
-  display:block;
-  background: #f3f3f3;
+  background: #f1f1f1;
+  flex: 0 0 auto;
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
 .head-text h3{
-  font-size: 30px;
-  margin: 0 0 8px;
+  margin: 0 0 6px 0;
+  font-size: 28px;
+  line-height: 1.1;
+  font-family: Georgia, "Times New Roman", serif;
 }
-
 .desc{
-  margin:0 0 12px;
+  margin: 0 0 10px 0;
   color: var(--muted);
 }
-
 .openhint{
-  color: var(--accent);
-  font-weight:700;
-  font-size: 13px;
+  color: var(--pink);
+  font-weight: 700;
+  font-size: 14px;
 }
 
-/* open body */
+.chip{
+  margin-left:auto;
+  background: #ffe3f0;
+  border: 1px solid var(--border);
+  color: var(--pink);
+  font-weight: 800;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  align-self:flex-start;
+}
+
 .card-body{
-  padding: 6px 22px 26px;
+  padding: 18px 18px 22px;
+  border-top: 1px solid rgba(0,0,0,0.04);
 }
 
+.group h4{
+  margin: 0 0 12px 0;
+  font-size: 22px;
+}
 .cols{
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: 44px; /* ✅ more space between columns */
+  gap: 26px;
 }
-
-h4{
-  margin-top: 26px;
-  margin-bottom: 14px;
-  font-size: 22px;
+@media (max-width: 700px){
+  .cols{ grid-template-columns: 1fr; }
+  .thumb{ width: 110px; height: 90px; }
+  .head-text h3{ font-size: 24px; }
 }
 
 h5{
-  font-size: 12px;
-  letter-spacing: 2px;
+  margin: 0 0 10px 0;
+  letter-spacing: .18em;
   text-transform: uppercase;
+  font-size: 12px;
   color: var(--muted);
-  margin: 0 0 14px;
 }
 
-ul,ol{ padding-left: 18px; }
-
-ul li, ol li{
-  margin: 10px 0; /* ✅ more spacing between list items */
+ul, ol{
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.75;
 }
+li{ margin: 6px 0; }
 
 .softline{
   border: none;
-  border-top: 1px solid #ffe2ef;
-  margin: 26px 0;
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+  margin: 18px 0;
 }
 
-/* footer */
-footer{
+.footer{
   text-align:center;
   color: var(--muted);
-  padding: 50px 0 30px;
+  padding: 22px 0 40px;
+}
+.head-text h3{
+  margin: 0 0 12px 0;   /* more space */
 }
 
-/* mobile */
-@media (max-width: 720px){
-  .card-head{
-    grid-template-columns: 1fr;
+.desc{
+  margin: 0 0 14px 0;   /* more space */
+  line-height: 1.5;
+}
+
+.openhint{
+  margin-top: 6px;
+  display: inline-block;
+}
+/* All recipe card images */
+.card-head img,
+.summary img,
+.thumb {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* Prevent any image from going full width */
+article img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make sure details content images NEVER break layout */
+details > img {
+  display: none;
+}
+/* =========================
+   MOBILE (phones) OVERRIDES
+   ========================= */
+@media (max-width: 700px) {
+
+  /* Make page breathe */
+  .wrap {
+    padding: 0 14px;
   }
-  .card-head img{
-    width: 100%;
-    height: 240px;
+
+  .hero {
+    padding: 22px 0 10px;
   }
-  .cols{
-    grid-template-columns: 1fr;
-    gap: 18px;
+
+  .hero h1 {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
+  .topbar-inner {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    margin-left: 10px;
+  }
+
+  /* One card per row */
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  /* Cards */
+  .card,
+  .recipe {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  /* Card header layout: image + text */
+  .card-head,
+  .summary {
+    align-items: center;
+  }
+
+  .summary-main,
+  .card-head {
+    display: flex;
+    gap: 12px;
+  }
+
+  /* Thumbnail smaller on phones */
+  .card-head img,
+  .summary img,
+  .thumb {
+    width: 78px;
+    height: 78px;
+    border-radius: 14px;
+  }
+
+  /* Title/subtitle sizes */
+  .head-text h3,
+  .summary-text h3 {
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+
+  .desc,
+  .muted {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  .openhint,
+  .click-open {
+    font-size: 13px;
+  }
+
+  /* Chip stays nice */
+  .chip {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  /* When a recipe opens: make columns stack */
+  .cols,
+  .two-col {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  /* Reduce big section headings */
+  h2 {
+    font-size: 26px;
+    margin: 18px 0 12px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  /* Lists spacing */
+  ul, ol {
+    padding-left: 18px;
+  }
+
+  li {
+    margin: 6px 0;
   }
 }
+
