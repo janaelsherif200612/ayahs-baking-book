@@ -1,0 +1,182 @@
+:root{
+  --bg: #fff6fb;
+  --card: #ffffff;
+  --border: #ffd3e6;
+  --accent: #ff6fa8;
+  --text: #222;
+  --muted: #777;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: "Georgia", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7; /* ✅ more breathing room */
+}
+
+.wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* topbar */
+.topbar{
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 0;
+}
+
+.brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.logo{ font-size:26px; }
+
+.brand-name{ font-weight:700; }
+.brand-tag{ font-size:13px; color: var(--muted); }
+
+nav a{
+  margin-left:18px;
+  text-decoration:none;
+  color: var(--text);
+  font-weight:600;
+}
+
+/* hero */
+.hero{
+  text-align:center;
+  padding: 54px 20px 30px;
+}
+
+.hero h1{
+  font-size: 40px;
+  margin: 0 0 10px;
+}
+
+.hero p{ color: var(--muted); margin:0; }
+
+/* sections */
+section{ margin: 50px 0 70px; }
+h2{ font-size: 30px; margin-bottom: 26px; }
+
+/* recipe card */
+.recipe{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  margin-bottom: 26px;
+  overflow: hidden;
+}
+
+details { padding: 0; }
+
+summary{
+  list-style:none;
+  cursor:pointer;
+}
+
+summary::-webkit-details-marker{ display:none; }
+
+.card-head{
+  display:grid;
+  grid-template-columns: 220px 1fr;
+  gap: 22px;
+  align-items:center;
+  padding: 20px;
+}
+
+.card-head img{
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 16px;
+  display:block;
+  background: #f3f3f3;
+}
+
+.head-text h3{
+  font-size: 30px;
+  margin: 0 0 8px;
+}
+
+.desc{
+  margin:0 0 12px;
+  color: var(--muted);
+}
+
+.openhint{
+  color: var(--accent);
+  font-weight:700;
+  font-size: 13px;
+}
+
+/* open body */
+.card-body{
+  padding: 6px 22px 26px;
+}
+
+.cols{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px; /* ✅ more space between columns */
+}
+
+h4{
+  margin-top: 26px;
+  margin-bottom: 14px;
+  font-size: 22px;
+}
+
+h5{
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+ul,ol{ padding-left: 18px; }
+
+ul li, ol li{
+  margin: 10px 0; /* ✅ more spacing between list items */
+}
+
+.softline{
+  border: none;
+  border-top: 1px solid #ffe2ef;
+  margin: 26px 0;
+}
+
+/* footer */
+footer{
+  text-align:center;
+  color: var(--muted);
+  padding: 50px 0 30px;
+}
+
+/* mobile */
+@media (max-width: 720px){
+  .card-head{
+    grid-template-columns: 1fr;
+  }
+  .card-head img{
+    width: 100%;
+    height: 240px;
+  }
+  .cols{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
